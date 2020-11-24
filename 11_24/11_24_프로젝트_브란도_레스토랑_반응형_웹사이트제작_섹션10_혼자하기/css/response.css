@@ -27,6 +27,15 @@
     #main #section08 .wrap {width:90%;}
     #main #section08 .wrap .gap .container > ul > li {width:50%;padding-bottom:60px;}
     #main #section08 .wrap .gap .container > ul > li:last-child {padding-bottom:0;}
+    
+    #main #section09 {padding:110px 0 110px 0;}
+
+    #main #section10 {padding:110px 0;}
+    #main #section10 .wrap .gap .slide-container .slide-btn-wrap .slide-left-btn {left:15%;}
+    #main #section10 .wrap .gap .slide-container .slide-btn-wrap .slide-right-btn {right:15%;}
+
+
+
 }
 
 @media all and (max-width:1200px) and (orientation:landscape) {
@@ -66,6 +75,17 @@
     #main #section04 {background-attachment:scroll}
 
     #main #section01 .hungry > img {width:60%;}/* 1200px일 때보다 더 적게 */
+
+    #main #section09 {padding:50px 0;}
+
+    #main #section10 {padding:80px 0;}
+    #main #section10 .wrap .gap .slide-container .slide-view .slide-gap .slide-wrap .s10-slide .slide-img-wrap {float:none;margin:0 auto;}
+    #main #section10 .wrap .gap .slide-container .slide-view .slide-gap .slide-wrap .s10-slide .slide-txt-wrap {float:none;margin:0 auto;text-align:center;}
+    #main #section10 .wrap .gap .slide-container .slide-view .slide-gap .slide-wrap .s10-slide .slide-txt-wrap .seperate-line {margin:26.531px auto;}
+    #main #section10 .wrap .gap .slide-container .slide-btn-wrap .slide-left-btn {top:-85%;}
+    #main #section10 .wrap .gap .slide-container .slide-btn-wrap .slide-right-btn {top:-85%;}
+
+
 }
 
 @media all and (max-width:991px) and (orientation:landscape){

@@ -393,7 +393,42 @@
             })
         },
         section10Fn:    function(){
+            var cnt = 0;
             
+            function mainSlideFn(){
+                $(".slide-wrap").stop().animate({left:-945.030*cnt},0,function(){
+                    if(cnt>2){cnt=2}
+                    if(cnt<0){cnt=0}
+                    $(".slide-wrap").eq(cnt).stop().animate({left:-945.030*cnt},300)
+                    console.log(cnt)
+                })
+            }
+            function prevSlideFn(){
+                cnt--;
+                mainSlideFn();
+            }
+            function nextSlideFn(){
+                cnt++;
+                mainSlideFn();
+            }
+
+            $(".prev-btn").on({
+                click:function(e){
+                    e.preventDefault();
+                    if(!$(this).is(":animated")){
+                        prevSlideFn();
+                    }
+                }
+            })
+            $(".next-btn").on({
+                click:function(e){
+                    e.preventDefault();
+                    if(!$(this).is(":animated")){
+                        nextSlideFn();
+                    }
+                }
+            })
+
         },
         section11Fn:    function(){
             
