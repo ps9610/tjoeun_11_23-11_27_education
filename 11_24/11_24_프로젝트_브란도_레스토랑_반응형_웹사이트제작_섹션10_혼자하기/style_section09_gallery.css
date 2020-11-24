@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+/* 갤러리 제이쿼리 설정 전에 CSS 먼저 이해하기 */
+/* 갤러리는 메뉴버튼을 누를때마다 이미지들의 배열이 자유롭기 때문에 absolute 써줘야됨 */ 
+#main #section09 .wrap .gap .container .content .gallery {position:relative;width:100%;height:calc(356.8125px*2);} /* 가로 4칸 :left로부터 0, 25%, 75%, 100%
+/* #main #section09 .wrap .gap .container .content .gallery {position:relative;width:100%;height:calc(250px*3);} 화면 넓이가 1000px일 때 높이는 250px */
+/* #main #section09 .wrap .gap .container .content .gallery {position:relative;width:100%;height:calc(356.8125px*4);} 가로 2칸 총 갯수 8개 / 칸 수 2칸 = 이미지가 8개일때 칸 수가 2개 */
+/* #main #section09 .wrap .gap .container .content .gallery {position:relative;width:100%;height:calc(356.8125px*8);} 가로 1칸 총 갯수 8개 / 칸 수 1칸 = 이미지가 8개일때 칸 수가 1개 */
+#main #section09 .wrap .gap .container .content .gallery > li {position:absolute;left:0;top:0;overflow:hidden;}
+
+/* 갤러리 가로 4개인 경우 */
+
+#main #section09 .wrap .gap .container .content .gallery {position:relative;width:100%;height:calc(356.8125px*2);} 
+/* ㄴ> 가로 4칸 :left로부터 0, 25%, 75%, 100% */
+/* 첫번째 줄이니까 (top값*0), left는 너비에 따라 바뀌니까 25%잡고 0 1 2 3 곱해줌,  */
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(1) {top:calc(356.8125px*0);left:calc(25%*0);width:25%;height:356.8125px;}
+                                                                        /* {top:0; 1903/4*0.75=356.8125; left:0;} */
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(2) {top:calc(356.8125px*0);left:calc(25%*1);width:25%;height:356.8125px;}
+                                                                        /* {top:0;                 left:25%;} */
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(3) {top:calc(356.8125px*0);left:calc(25%*2);width:25%;height:356.8125px;}
+                                                                        /* {top:0;                 left:50%;} */
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(4) {top:calc(356.8125px*0);left:calc(25%*3);width:25%;height:356.8125px;}
+                                                                        /* {top:0;                 left:75%;} */
+/* 두번째 줄이니까 (top값*1), left는 또 4번 반복되어야 하니 0 1 2 3 곱해줌,  */
+
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(5) {top:calc(356.8125px*1);left:calc(25%*0);width:25%;height:356.8125px;}
+                                                                        /* {top:356.8125px;        left:0%;} */
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(6) {top:calc(356.8125px*1);left:calc(25%*1);width:25%;height:356.8125px;}
+                                                                        /* {top:356.8125px;        left:25%;} */
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(7) {top:calc(356.8125px*1);left:calc(25%*2);width:25%;height:356.8125px;}
+                                                                        /* {top:356.8125px;        left:50%;} */
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(8) {top:calc(356.8125px*1);left:calc(25%*3);width:25%;height:356.8125px;}
+                                                                        /* {top:356.8125px;        left:75%;} */
+
+
+/* 갤러리 가로 3개인 경우 */
+
+#main #section09 .wrap .gap .container .content .gallery {position:relative;width:100%;height:calc(356.8125px*3);}
+/* ㄴ> 가로 3칸 :left로부터 33.3%, 66.6%, 99.9% */ 
+/*  = 총 갯수 8개 / 칸 수 3칸, 이미지가 8개 = 가로 2줄나오고 2개는 밑으로 떨어짐, 이 때 자리올림!!!!! */
+/* 그래서 가로 3줄 필요함 */
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(1) {top:calc(475.75px*0);left:calc(33.333333%*0);width:33.333333%;height:475.75px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(2) {top:calc(475.75px*0);left:calc(33.333333%*1);width:33.333333%;height:475.75px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(3) {top:calc(475.75px*0);left:calc(33.333333%*2);width:33.333333%;height:475.75px;} 
+
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(4) {top:calc(475.75px*1);left:calc(33.333333%*0);width:33.333333%;height:475.75px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(5) {top:calc(475.75px*1);left:calc(33.333333%*1);width:33.333333%;height:475.75px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(6) {top:calc(475.75px*1);left:calc(33.333333%*2);width:33.333333%;height:475.75px;} 
+
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(7) {top:calc(475.75px*2);left:calc(33.333333%*0);width:33.333333%;height:475.75px;}
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(8) {top:calc(475.75px*2);left:calc(33.333333%*1);width:33.333333%;height:475.75px;}
+
+/* 1000px=>기기의 넓이>갤러리 가로 3줄로 설정 */
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(1) {top:calc(250px*0);left:calc(33.333333%*0);width:33.333333%;height:250px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(2) {top:calc(250px*0);left:calc(33.333333%*1);width:33.333333%;height:250px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(3) {top:calc(250px*0);left:calc(33.333333%*2);width:33.333333%;height:250px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(4) {top:calc(250px*1);left:calc(33.333333%*0);width:33.333333%;height:250px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(5) {top:calc(250px*1);left:calc(33.333333%*1);width:33.333333%;height:250px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(6) {top:calc(250px*1);left:calc(33.333333%*2);width:33.333333%;height:250px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(7) {top:calc(250px*2);left:calc(33.333333%*0);width:33.333333%;height:250px;}
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(8) {top:calc(250px*2);left:calc(33.333333%*1);width:33.333333%;height:250px;}
+
+/* 갤러리 가로 2개인 경우 */
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(1) {top:calc(713.625px*0);left:calc(50%*0);width:50%;height:713.625px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(2) {top:calc(713.625px*0);left:calc(50%*1);width:50%;height:713.625px;} 
+
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(3) {top:calc(713.625px*1);left:calc(50%*0);width:50%;height:713.625px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(4) {top:calc(713.625px*1);left:calc(50%*1);width:50%;height:713.625px;}
+
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(5) {top:calc(713.625px*2);left:calc(50%*0);width:50%;height:713.625px;} 
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(6) {top:calc(713.625px*2);left:calc(50%*1);width:50%;height:713.625px;} 
+
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(7) {top:calc(713.625px*3);left:calc(50%*0);width:50%;height:713.625px;}
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(8) {top:calc(713.625px*3);left:calc(50%*1);width:50%;height:713.625px;}
+
+/* 갤러리 가로 1개인 경우 */
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(1) {top:calc(1427.25px*0);left:calc(100%*0);width:100%;height:1427.25px;}
+
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(2) {top:calc(1427.25px*1);left:calc(100%*0);width:100%;height:1427.25px;} 
+
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(3) {top:calc(1427.25px*2);left:calc(100%*0);width:100%;height:1427.25px;}
+
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(4) {top:calc(1427.25px*3);left:calc(100%*0);width:100%;height:1427.25px;}
+
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(5) {top:calc(1427.25px*4);left:calc(100%*0);width:100%;height:1427.25px;}
+    
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(6) {top:calc(1427.25px*5);left:calc(100%*0);width:100%;height:1427.25px;} 
+
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(7) {top:calc(1427.25px*6);left:calc(100%*0);width:100%;height:1427.25px;}
+
+#main #section09 .wrap .gap .container .content .gallery > li:nth-child(8) {top:calc(1427.25px*7);left:calc(100%*0);width:100%;height:1427.25px;}
