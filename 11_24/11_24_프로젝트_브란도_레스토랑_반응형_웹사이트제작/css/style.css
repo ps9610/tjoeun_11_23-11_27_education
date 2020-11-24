@@ -183,7 +183,26 @@
 #main #section07 .wrap .container > ul > li > div > div > h3 {font-size:11px;color:#ababab;padding-bottom:20px;}
 #main #section07 .wrap .container > ul > li > div > div > p {font-size:14px;color:#ababab;padding:0 30px 50px 30px;line-height:160%;}
 
-#main #section08 {width:100%;height:581px;background:url(../img/restaurant-img24.jpg) 50% 50% fixed;background-size:cover;}
+#main #section08 {width:100%;height:auto;padding:130px 0;background:url(../img/restaurant-img24.jpg) 50% 50% fixed;background-size:cover;}
+#main #section08 .wrap {width:100%;max-width:1170px;margin:0 auto;transition:width 0.3s;}
+#main #section08 .wrap .gap {margin:0;}
+#main #section08 .wrap .gap .title-wrap {width:100%;}
+#main #section08 .wrap .gap .title-wrap > h2 {width:100%;}
+#main #section08 .wrap .gap .title-wrap > h2 > img {width:90%;max-width:483px;}
+#main #section08 .wrap .gap .container {width:100%;padding-top:30px;}
+#main #section08 .wrap .gap .container > ul {width:100%;}
+#main #section08 .wrap .gap .container > ul > li {float:left;width:33.33333%;}
+#main #section08 .wrap .gap .container > ul > li > div {position:relative;max-width:360px;padding:0 15px;margin:0 auto;text-align:center;font-family:"Montserrat";}
+#main #section08 .wrap .gap .container > ul > li > div > img {width:100%;max-width:289px;transition:all .3s ease-in-out;}
+#main #section08 .wrap .gap .container > ul > li > div:focus > img {outline:none;}
+#main #section08 .wrap .gap .container > ul > li > div:hover > img {transform:scale(1.1);}
+#main #section08 .wrap .gap .container > ul > li > div:focus > img {transform:scale(1.1);}
+#main #section08 .wrap .gap .container > ul > li > div > h3 {font-size:18px;font-weight:600;color:#fff;padding:35px 0 15px 0;}
+#main #section08 .wrap .gap .container > ul > li > div > h4 {font-size:11px;font-weight:600;color:#ababab;}
+#main #section08 .wrap .gap .container > ul > li > div .only {position:absolute;top:0;right:0;display:table;width:90px;height:90px;background:#c33;border-radius:50%;}
+#main #section08 .wrap .gap .container > ul > li > div .only > span {display:table-cell;vertical-align:middle;line-height:120%;}/*부모영역을 table, 중앙정렬 해야 하는 자식요소를 table-cell하면 vertical-align이 적용됨*/
+#main #section08 .wrap .gap .container > ul > li > div .only > span > em {display:block;font-size:11px;font-weight:500;color:#fff;}
+#main #section08 .wrap .gap .container > ul > li > div .only > span > strong {display:block;font-size:18px;font-weight:600;color:#fff;}
 
 #main #section09 {width:100%;height:auto;padding:130px 0;}
 #main #section09 .wrap {width:100%;}
@@ -191,7 +210,7 @@
 
 #main #section09 .wrap .gap .container {width:100%;}
 #main #section09 .wrap .gap .container .title {width:100%;text-align:center;}
-#main #section09 .wrap .gap .container .title > h2 {font-size:28px;font-weight:800;font-family:"Montserrat";color:#614c45;padding-bottom:20px;}
+#main #section09 .wrap .gap .container .title > h2 {font-size:28px;font-weight:800;color:#614c45;padding-bottom:20px;}
 #main #section09 .wrap .gap .container .title > h3 {width:100%;}
 #main #section09 .wrap .gap .container .title > h3 > img {width:auto;}
 

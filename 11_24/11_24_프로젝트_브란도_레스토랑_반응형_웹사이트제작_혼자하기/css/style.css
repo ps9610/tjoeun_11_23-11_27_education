@@ -183,7 +183,25 @@
 #main #section07 .wrap .container > ul > li > div > div > h3 {font-size:11px;color:#ababab;padding-bottom:20px;}
 #main #section07 .wrap .container > ul > li > div > div > p {font-size:14px;color:#ababab;padding:0 30px 50px 30px;line-height:160%;}
 
-#main #section08 {width:100%;height:581px;background:url(../img/restaurant-img24.jpg) 50% 50% fixed;background-size:cover;}
+#main #section08 {width:100%;height:auto;padding:130px 0;background:url(../img/restaurant-img24.jpg) 50% 50% fixed;background-size:cover;}
+#main #section08 .wrap {width:100%;max-width:1170px;margin:0 auto;}
+#main #section08 .wrap .title-wrap {width:100%;text-align:center;}
+#main #section08 .wrap .title-wrap > h2 {width:100%;display:inline-block;}
+#main #section08 .wrap .title-wrap > h2 > img {width:100%;max-width:483px;}
+#main #section08 .wrap .container {width:100%;padding-top:2.564103%;}
+#main #section08 .wrap .container > ul {width:100%;}
+#main #section08 .wrap .container > ul > li {float:left;width:33.333333%;}
+#main #section08 .wrap .container > ul > li > div {position:relative;padding:0 1.282051%;font-family:"Montserrat";}
+#main #section08 .wrap .container > ul > li > div > h2 > img {width:100%;max-width:289px;transition:all 0.3s;}
+#main #section08 .wrap .container > ul > li > div > h2:hover > img {transform:scale(1.1);}
+#main #section08 .wrap .container > ul > li > div > h2:focus > img {transform:scale(1.1);outline:0;}
+#main #section08 .wrap .container > ul > li > div > span {position:absolute;top:0;right:3%;display:inline-block;width:90px;padding:25px 0;height:40px;border-radius:50%;background:#cc3434;color:#fff;}
+#main #section08 .wrap .container > ul > li > div > span > em {font-size:11px;display:block;text-align:center;line-height:20px;}
+#main #section08 .wrap .container > ul > li > div > span > strong {font-size:18px;display:block;text-align:center;line-height:20px;}
+#main #section08 .wrap .container > ul > li > h2 {margin-top:28.797px;color:#fff;font-size:18px;line-height:150%;text-align:center;}
+#main #section08 .wrap .container > ul > li > h3 {margin:3.594px 0;color:#ababab;font-size:11px;line-height:182%;text-align:center;}
+
+
 
 #main #section09 {width:100%;height:auto;padding:130px 0;}
 #main #section09 .wrap {width:100%;}
