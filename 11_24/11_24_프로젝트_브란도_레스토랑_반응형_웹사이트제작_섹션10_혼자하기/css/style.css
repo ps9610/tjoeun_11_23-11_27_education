@@ -265,7 +265,9 @@
 #main #section10 .wrap .gap .slide-container .slide-view .slide-gap .slide-wrap .s10-slide {float:left;width:33.3333333%;height:100%;}
 #main #section10 .wrap .gap .slide-container .slide-view .slide-gap .slide-wrap .s10-slide .slide-img-wrap {width:262.188px;height:100%;padding:0 15px;}
 #main #section10 .wrap .gap .slide-container .slide-view .slide-gap .slide-wrap .s10-slide .slide-img-wrap > img {border:8px solid #fff;border-radius:50%;width:100%;max-width:200px;}
-#main #section10 .wrap .gap .slide-container .slide-view .slide-gap .slide-wrap .s10-slide .slide-txt {float:left;width:33.3333333%;height:100%;}
+#main #section10 .wrap .gap .slide-container .slide-view .slide-gap .slide-wrap .s10-slide .slide-txt-wrap {width:379.062px;height:100%;padding:0 15px;}
+#main #section10 .wrap .gap .slide-container .slide-view .slide-gap .slide-wrap .s10-slide .slide-txt-wrap .stars {width:100%;height:23px;background:#c44;}
+#main #section10 .wrap .gap .slide-container .slide-view .slide-gap .slide-wrap .s10-slide .slide-txt-wrap .stars i {width:auto;height:auto;color:#fff000;}
 
 
 #main #section11 {width:100%;height:775px;background:url(../img/slider-img6.jpg) 50% 50% fixed;background-size:cover;padding:130px 0;}
