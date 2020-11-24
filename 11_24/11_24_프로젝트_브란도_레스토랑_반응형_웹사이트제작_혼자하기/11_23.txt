@@ -1,0 +1,140 @@
+///// 잼 코딩 /////
+
+^ = 한단계이전(부모, ^^는 조상요소)으로간다
++ = 형제요소로 간다
+* = 갯수증가
+$ = 일렬번호(한자리, 두자리, 세자리 등등 다 OK)
+# = 아이디
+. = 클래스
+{} = 텍스트 = 내용입력
+Lorem = Lorem ipsum;자동으로 정해져있는 영어문장(아무내용없음) !중괄호없이
+
+
+1. div.title-wrap>h2>{OUR CHEF}
+   h3>img
+<div class="title-wrap">
+    <h2>OUR CHEF</h2>
+    <h3><img src="" alt=""></h3>
+</div>
+
+1_1. div.title-wrap>h2>{OUR CHEF}^h3>img
+<div class="title-wrap">
+    <h2>OUR CHEF</h2>
+    <h3><img src="" alt=""></h3>
+</div>
+
+1_2. div.title-wrap>h2>{OUR CHEF}+h3>img
+<div class="title-wrap">
+    <h2>
+        OUR CHEF
+        <h3><img src="" alt=""></h3>
+    </h2>
+</div>
+
+2. ul>li*10 = 
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+3. ul>li*5.slide.slide$>div (숫자넣는거)
+<ul>
+    <li class="slide slide1">
+        <div></div>
+    </li>
+    <li class="slide slide2">
+        <div></div>
+    </li>
+    <li class="slide slide3">
+        <div></div>
+    </li>
+    <li class="slide slide4">
+        <div></div>
+    </li>
+    <li class="slide slide5">
+        <div></div>
+    </li>
+</ul>
+
+4. ul>li.slide$$*5
+<ul>
+    <li class="slide01"></li>
+    <li class="slide02"></li>
+    <li class="slide03"></li>
+    <li class="slide04"></li>
+    <li class="slide05"></li>
+</ul>
+
+5. div.slide-container>div.slide-view>ul.slide-wrap>li.slide.slide$*4>div>img
+<div class="slide-container">
+    <div class="slide-view">
+        <ul class="slide-wrap">
+            <li class="slide slide1">
+                <div><img src="" alt=""></div>
+            </li>
+            <li class="slide slide2">
+                <div><img src="" alt=""></div>
+            </li>
+            <li class="slide slide3">
+                <div><img src="" alt=""></div>
+            </li>
+            <li class="slide slide4">
+                <div><img src="" alt=""></div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+6. <ul>
+    <li>
+        <div>Lorem</div>
+    </li>
+    <li>
+        <div>Lorem</div>
+    </li>
+    <li>
+        <div>Lorem</div>
+    </li>
+    <li>
+        <div>Lorem</div>
+    </li>
+    <li>
+        <div>Lorem</div>
+    </li>
+</ul>
+
+7. ul>li>Lorem
+<ul>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In recusandae laudantium veritatis quis ipsum voluptatem magni excepturi necessitatibus totam obcaecati exercitationem ad ratione quasi repellendus quo quam, pariatur blanditiis. Quia.</li>
+</ul>
+
+8. ul>li.slide$*5>div>lorem
+<ul>
+    <li class="slide1">
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. A unde beatae officia qui porro obcaecati, esse ad veniam, consequatur doloremque numquam dolore ut sint recusandae pariatur ullam iusto nesciunt perspiciatis?</div>
+    </li>
+    <li class="slide2">
+        <div>Obcaecati, impedit ut perferendis maxime repellendus accusamus quia aliquid blanditiis autem voluptas id corrupti nemo! Est, debitis ipsum? Quo consectetur quia natus magnam mollitia veritatis recusandae tempore. Quia, non eligendi.</div>
+    </li>
+    <li class="slide3">
+        <div>Eligendi impedit itaque esse quisquam facere animi! Commodi nesciunt quibusdam, ipsam eveniet autem dolorem esse itaque, laborum nam aut voluptates, velit ab dolorum doloremque aliquam iusto minus dicta est perferendis.</div>
+    </li>
+    <li class="slide4">
+        <div>Officiis eos velit odit officia, voluptate ullam. Fugit consequuntur harum tempora? Laborum accusantium deserunt ipsum laboriosam, unde enim, ducimus natus quia nulla inventore cumque laudantium. Distinctio ea quod consequuntur modi?</div>
+    </li>
+    <li class="slide5">
+        <div>Aliquam excepturi inventore facere quae repellendus, obcaecati assumenda quaerat, rem voluptatibus repellat hic cupiditate. Commodi enim ab quaerat corrupti, sint laboriosam, praesentium consequuntur incidunt repudiandae ullam voluptas quibusdam? Enim, placeat.</div>
+    </li>
+</ul>
+ 
+9. input[type='text']
+<input type="text">
+<input type="text" babo="">
