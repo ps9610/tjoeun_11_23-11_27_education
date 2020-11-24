@@ -20,7 +20,10 @@
     #main #section01 .hungry > img {width:65%;}/* 양쪽에 여백생기게하려고 */
     #main #section06 .wrap .container > li .gap .content .large-box .large-box-gap > ul > li > ul > li > div > p {line-height:120%;}
 
-    #main #section07 .wrap .container > ul > li {float:left;width:50%;}
+    #main #section07 .wrap > ul > li {width:50%}
+
+    #main #section08 .wrap {width:970px;padding:110px 0;}
+
 }
 
 @media all and (max-width:1200px) and (orientation:landscape) {
@@ -60,6 +63,10 @@
     #main #section04 {background-attachment:scroll}
 
     #main #section01 .hungry > img {width:60%;}/* 1200px일 때보다 더 적게 */
+
+    #main #section08 .wrap {width:750px;padding:80px 0;}
+
+
 }
 
 @media all and (max-width:991px) and (orientation:landscape){
@@ -90,12 +97,15 @@
     #main #section06 .wrap .container > li .gap .content .small-box {width:56%;left:22%;}
     #main #section06 .wrap .container > li .gap .content .large-box {width:80%;left:10%;}
 
-    #main #section07 .wrap .container > ul > li {float:left;width:100%;}
+    #main #section07 .wrap > ul > li {width:100%;}
 
-}
-@media all and (max-width:600px){
+    #main #section08 {padding:0;}
+    #main #section08 .wrap {width:100%;padding:50px 0;}
+    #main #section08 .wrap .gap .content > ul > li {float:none;width:100%;}
+    #main #section08 .wrap .gap .content > ul > li > div > h2 > div {position:absolute;top:0;right:20%;}
+    #main #section08 .wrap .gap .content > ul > li > div > div > h3 {margin-top:4.394875%;}
+    #main #section08 .wrap .gap .content > ul > li > div > div > p {padding:2.598447%;}
 
-#main #section07 .wrap .container > ul > li > div > div > p {line-height:140%;}
 }
 
 @media all and (max-width:500px){
@@ -104,6 +114,4 @@
 
     #main #section06 .wrap .container > li .gap .content .small-box {width:80%;left:10%;}
     #main #section06 .wrap .container > li .gap .content .large-box {width:92%;left:4%;}
-
-
 }

@@ -1,11 +1,10 @@
 @charset "UTF-8";
 
-/* 공통요소 */
+
 .title-wrap {width:100%;text-align:center;padding-bottom:60px;}
 .title-wrap > h2 {font-size:28px;color:#614c45;font-weight:700;font-family:"Montserrat";}
 .title-wrap > h3 {padding-top:20px;}
 .title-wrap > h3 >img {width:auto;}
-
 
 #header {z-index:3;position:fixed;top:0;left:0;width:100%;border-bottom:1px solid rgba(225,225,225, 0.1);background:transparent;transition:height .3s, background-color .5s;}
 #header.addMobile {height:65px;background:rgba(0,0,0, .7);}
@@ -107,7 +106,6 @@
 #main #section05 {width:100%;height:auto;padding:130px 0;}
 /* #main #section05 .wrap {width:1170px;margin:0 auto;height:auto;} */
 #main #section05 .wrap {width:100%;max-width:1170px;margin:0 auto;height:auto;}
-
 /* #main #section05 .wrap .left-wrap {float:left;width:780px;height:auto;} */
 #main #section05 .wrap .left-wrap {float:left;width:66.6666667%;height:auto;}/* 현재는 100%면 1170px이 되기 때문에 max-width가 아닌 비율 계산을 해주어야 함  */
 #main #section05 .wrap .left-wrap .gap {margin:0 15px;}
@@ -164,26 +162,44 @@
 #main #section06 .wrap .container > li .gap .content .large-box .large-box-gap > ul > li > ul > li > div > h3 {font-size:13px;color:#614c45;font-weight:600;font-family:"Montserrat";padding-bottom:6px;}
 #main #section06 .wrap .container > li .gap .content .large-box .large-box-gap > ul > li > ul > li > div > p {font-size:13px;width:90%;color:#626262;line-height:150%;}
 
-#main #section07 {width:100%;height:auto;padding-top:130px;}
-#main #section07 .wrap {width:100%;}
-#main #section07 .wrap .container {width:100%;}
-#main #section07 .wrap .container > ul {width:100%;}
-#main #section07 .wrap .container > ul > li {float:left;width:25%;overflow:hidden;}
-#main #section07 .wrap .container > ul > li:focus {outline:0;}
-#main #section07 .wrap .container > ul > li > div {position:relative;text-align:center;}
-#main #section07 .wrap .container > ul > li > div > img {z-index:1;position:relative;width:95%;transform:scale(1);opacity:1;filter:blur(0);transition:all .3s ease-in;}
-#main #section07 .wrap .container > ul > li:hover > div > img {opacity:0.5;transform:scale(1.1);filter:blur(3px);}
-#main #section07 .wrap .container > ul > li:focus > div > img {opacity:0.5;transform:scale(1.1);filter:blur(3px);}
-#main #section07 .wrap .container > ul > li > div > div {z-index:2;position:absolute;bottom:-50%;opacity:0;left:15%;width:70%;background:#614c45;}
-#main #section07 .wrap .container > ul > li:hover > div > div {bottom:40px;opacity:1;transition:all .6s;}
-#main #section07 .wrap .container > ul > li:focus > div > div {bottom:40px;opacity:1;transition:all .6s;}
-#main #section07 .wrap .container > ul > li > div > div > h6 {padding-bottom:25px;padding-top:40px;}
-#main #section07 .wrap .container > ul > li > div > div > h6 > i {display:inline-block;width:30px;height:4px;background:#c8a64b;}
-#main #section07 .wrap .container > ul > li > div > div > h2 {font-size:20px;color:#c8a64b;font-weight:600;padding-bottom:10px;}
-#main #section07 .wrap .container > ul > li > div > div > h3 {font-size:11px;color:#ababab;padding-bottom:20px;}
-#main #section07 .wrap .container > ul > li > div > div > p {font-size:14px;color:#ababab;padding:0 30px 50px 30px;line-height:160%;}
+#main #section07 {width:100%;height:auto;padding-top:130px;overflow:hidden;}
+#main #section07 .wrap {width:100%;margin:0 auto;}
+#main #section07 .wrap .title-wrap {margin:0 auto;}
+#main #section07 .wrap > ul {width:100%;}
+#main #section07 .wrap > ul > li {float:left;width:25%;position:relative;top:0;overflow:hidden;}
+#main #section07 .wrap > ul > li > div {position:relative;padding:0 15px;}
+#main #section07 .wrap > ul > li > div > img {z-index:1;position:relative;width:100%;transition:all .3s;opacity:1;}
+#main #section07 .wrap > ul > li:hover > div > img {transform:scale(1.1);top:-20px;filter:blur(3px);opacity:0.5;}
+#main #section07 .wrap > ul > li > div > div {z-index:2;position:absolute;width:69.998108%;bottom:-100%;left:15.000946%;background:#614c45;text-align:center;transition:all .5s;}
+#main #section07 .wrap > ul > li:hover > div > div {display:block;bottom:45px;}
+#main #section07 .wrap > ul > li:focus > div > div {display:block;bottom:45px;}
+#main #section07 .wrap > ul > li > div > div > div {padding:12.85614% 0;}
+#main #section07 .wrap > ul > li > div > div > div > h6 {width:30px;height:4px;margin:0 auto 5.599790% auto;background:#c8a64b;}
+#main #section07 .wrap > ul > li > div > div > div > h6 > i {width:100%;height:100%;}
+#main #section07 .wrap > ul > li > div > div > div > h3 {font-size:20px;line-height:30px;color:#c8a64b;font-family:"Montserrat";}
+#main #section07 .wrap > ul > li > div > div > div > h2 {font-size:11px;line-height:20px;color:#ababab;font-family:"Montserrat";}
+#main #section07 .wrap > ul > li > div > div > div > p {width:80%;margin:3.753573% auto 6.246321% auto;font-size:14px;line-height:24px;color:#ababab;}
 
-#main #section08 {width:100%;height:581px;background:url(../img/restaurant-img24.jpg) 50% 50% fixed;background-size:cover;}
+#main #section08 {width:100%;height:auto;padding:130px 0;background:url(../img/restaurant-img24.jpg) 50% 50% fixed;background-size:cover;}
+#main #section08 .wrap {width:1170px;margin:0 auto;}
+#main #section08 .wrap .gap {margin:0 15px;}
+#main #section08 .wrap .gap .title-img-wrap {width:100%;}
+#main #section08 .wrap .gap .title-img-wrap .title-img-gap {margin:0 auto;margin-bottom:8.21%;padding:0 1.315789%;}
+#main #section08 .wrap .gap .title-img-wrap .title-img-gap .title-img {width:483px;margin:0 auto;}
+#main #section08 .wrap .gap .title-img-wrap .title-img-gap .title-img > img {width:auto;}
+#main #section08 .wrap .gap .content {width:100%;}
+#main #section08 .wrap .gap .content > ul {width:100%;text-align:center;}
+#main #section08 .wrap .gap .content > ul > li {float:left;width:33.333333%;}
+#main #section08 .wrap .gap .content > ul > li > div {padding:0 3.947368%}
+#main #section08 .wrap .gap .content > ul > li > div > h2 {position:relative;width:100%;}
+#main #section08 .wrap .gap .content > ul > li > div > h2 > img {position:relative;width:100%;max-width:289px;}
+#main #section08 .wrap .gap .content > ul > li > div > h2 > div {position:absolute;top:0;right:0;width:90px;height:40px;padding:25px 0;background:#dc3535;border-radius:50%;}
+#main #section08 .wrap .gap .content > ul > li > div > h2 > div > span {display:block;color:#fff;font-family:"Montserrat";letter-spacing:.8px;}
+#main #section08 .wrap .gap .content > ul > li > div > h2 > div > span:nth-child(1) {font-size:11px;line-height:20px;}
+#main #section08 .wrap .gap .content > ul > li > div > h2 > div > span:nth-child(2) {font-size:18px;font-weight:600;}
+#main #section08 .wrap .gap .content > ul > li > div > div {margin-top:7.999167%;font-family:"Montserrat";} /* 28.797px; */
+#main #section08 .wrap .gap .content > ul > li > div > div > h3 {line-height:27px;color:#fff;font-size:18px;font-weight:500;}
+#main #section08 .wrap .gap .content > ul > li > div > div > p {margin:0.998333% 0;line-height:20px;color:#ababab;font-size:11px;font-weight:600;}
 
 #main #section09 {width:100%;height:auto;padding:130px 0;}
 #main #section09 .wrap {width:100%;}
