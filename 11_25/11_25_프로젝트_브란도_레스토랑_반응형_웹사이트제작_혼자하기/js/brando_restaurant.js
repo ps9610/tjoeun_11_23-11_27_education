@@ -1,7 +1,5 @@
 ;(function(window,document,$,undefined){ //항상 밑에서 위로 보기(업데이트 항목은 위로 써줌)
 
-    // var brando = 객체(host)
-    // 객체 안에 property가 있으면 객체함수(리터럴함수=익명함수) = 메소드처럼 쓸 수 있게 됨
     var brando = {
         init:           function(){ 
             var that=this;
@@ -29,44 +27,56 @@
         },//브란도에서 최초 실행될 js
 
         headerFn:       function(){
+
             var url = null; 
-            $(".smooth-btn").on({ 
+
+            var smoothBtn = $(".smooth-btn");
+            var htmlBody = $("html,body");
+            var mobileBtn = $("#header .mobile-btn");
+            var window_ = $(window);
+            var header = $("#header");
+            var goTop = $("#header .goTop");
+            var mobileMenu = $("#header .mobile-menu");
+
+            smoothBtn.on({ 
                 click : function(event){ 
+                    var that = $(this);
                     event.preventDefault();
-                    url = $(this).attr("href");
-                   $("html,body").stop().animate({ scrollTop: $( url ).offset().top },800) 
-                   $(".mobile-btn").removeClass("addClose");
+                    url = that.attr("href");
+                    htmlBody.stop().animate({ scrollTop: $( url ).offset().top },800) 
+                   mobileBtn.removeClass("addClose");
                 }
             });
 
             //scrolling
-            $(window).scroll(function(){
-                if( $(window).scrollTop()>=30 ){
-                    $("#header").addClass("addMobile")
-                    $(".goTop").addClass("addGotop")
+            window_.scroll(function(){
+                if( window_.scrollTop()>=30 ){
+                    header.addClass("addMobile")
+                   goTop.addClass("addGotop")
                 }
                 else{
-                    $("#header").removeClass("addMobile")
-                    $(".goTop").removeClass("addGotop")
+                    header.removeClass("addMobile")
+                   goTop.removeClass("addGotop")
                 }
             });
 
             //resize
             var winW = 0;
 
-            $(window).resize(function(){
-                winW = $(window).width();
+            window_.resize(function(){
+                winW = window_.width();
                 if( winW>990 ){
-                    $(".mobile-menu").stop().slideUp(0);
+                    mobileMenu.stop().slideUp(0);
                 }
             });
 
             //btn-click
-            $(".mobile-btn").on({
+            mobileBtn.on({
                 click : function(event){
+                    var that = $(this);
                     event.preventDefault();
-                    $(this).toggleClass("addClose");
-                    $(".mobile-menu").stop().slideToggle(300);
+                    that.toggleClass("addClose");
+                    mobileMenu.stop().slideToggle(300);
                 }
             });
 
@@ -75,32 +85,40 @@
 
         section01Fn:    function(){
             
-            var n = $(".slide").length-1; // 슬라이드 전체 갯수, 슬라이드 추가/삭제할때마다 변경하기 싫어서, index번호는 0부터 시작하니까 -1해주기
+            var window_ =  $(window);
+            var slide = $("#section01 .slide")
+            var hungry = $("#section01 .hungry")
+            var section01 = $("#section01")
+            var arrowDownBtn = $("#section01 .arrow-down-btn")
+            var htmlBody = $("html,body")
+            var section02 = $("#section02")
+
+            var n = slide.length-1; // 슬라이드 전체 갯수, 슬라이드 추가/삭제할때마다 변경하기 싫어서, index번호는 0부터 시작하니까 -1해주기
             var cnt = 0;
             
             var winH = 969;
-            var imgH = $(".hungry").height();
+            var imgH = hungry.height();
             var imgTop = (winH-imgH)/2;
     
             setTimeout(resizeFn,100);
 
             function resizeFn(){                
-                winH = $(window).height();
-                $("#section01").css({ height:winH });
+                winH = window_.height();
+                section01.css({ height:winH });
                 
-                imgH = $(".hungry").height();
+                imgH = hungry.height();
                 imgTop = (winH-imgH)/2;
-                $(".hungry").css({ top:imgTop });
+                hungry.css({ top:imgTop });
             };
 
             //Smooth Scrolling Event
-            $(".arrow-down-btn").on({
+            arrowDownBtn.on({
                 click : function(){
-                    $("html,body").stop().animate({ scrollTop : $("#section02").offset().top},700);
+                    htmlBody.stop().animate({ scrollTop : section02.offset().top},700);
                 }
             });
 
-            $(window).resize(function(){
+            window_.resize(function(){
                 resizeFn();
             });
 
@@ -108,17 +126,17 @@
             
             //메인 NEXT 슬라이드
             function mainNextSlideFn(){
-                $(".slide").css({ zIndex:1 }).stop().animate({opacity:1},0);
-                $(".slide").eq(cnt==0? n:cnt-1).css({ zIndex:2 });
-                $(".slide").eq(cnt).css({ zIndex:3 }).stop().animate({opacity:0},0).animate({opacity:1},800);
+                slide.css({ zIndex:1 }).stop().animate({opacity:1},0);
+                slide.eq(cnt==0? n:cnt-1).css({ zIndex:2 });
+                slide.eq(cnt).css({ zIndex:3 }).stop().animate({opacity:0},0).animate({opacity:1},800);
                 //console.log("next",cnt);
                 }
 
             //메인 PREV 슬라이드
             function mainPrevSlideFn(){
-                $(".slide").css({ zIndex:1 }).stop().animate({opacity:1},0);
-                $(".slide").eq(cnt).css({ zIndex:2 });
-                $(".slide").eq(cnt==n? 0:cnt+1).css({ zIndex:3 }).stop().animate({opacity:1},0).animate({opacity:0},800);
+                slide.css({ zIndex:1 }).stop().animate({opacity:1},0);
+                slide.eq(cnt).css({ zIndex:2 });
+                slide.eq(cnt==n? 0:cnt+1).css({ zIndex:3 }).stop().animate({opacity:1},0).animate({opacity:0},800);
                 //console.log("prev",cnt);
                 }
 
@@ -136,14 +154,14 @@
                 mainNextSlideFn();
             }
 
-            $("#section01").swipe({
+            section01.swipe({
                 swipeLeft : function(){
-                    if( !$(".slide").is(":animated") ){
+                    if( !slide.is(":animated") ){
                         nextCountFn();
                     }
                 },
                 swipeRight : function(){
-                    if( !$(".slide").is(":animated") ){
+                    if( !slide.is(":animated") ){
                         prevCountFn();
                     }
                 }
@@ -153,17 +171,27 @@
 
         section234Fn:    function(){
          
+            var window_ = $(window)
+            var contentWrap = $(".section234 .content-wrap");
+            var textWrap = $(".section234 .text-wrap");
+            var textWrapH3= $('.section234 .text-wrap h3');
+            var textWrapH4= $('.section234 .text-wrap h4');
+            var textWrapP= $('.section234 .text-wrap p');
+            var section234 = $(".section234");
+            var section0204ContentWrap= $("#section02 .content-wrap, #section04 .content-wrap");
+            var section03ContentWrap= $("#section03 .content-wrap");
+
             var rl = (windowWidth-boxWidth)/2;
-            var windowWidth = $(window).width(); //1170
-            var windowHeight = $(window).height(); //969
+            var windowWidth = window_.width(); //1170
+            var windowHeight = window_.height(); //969
             var section234Height = windowHeight; 
             var boxTop = (windowHeight-boxHeight)/2; //(969-550)/2 = 209.5
-            var boxWidth = $(".content-wrap").width(); //450
+            var boxWidth = contentWrap.width(); //450
             var boxHeight = boxWidth * 1.22222;
-            //            = $(".content-wrap").height(); //550
+            //            = contentWrap.height(); //550
             var fontSizeH3 = rateH3 * textW;
             var rateH3 = 0.096551724
-            var textW = $(".text-wrap").width();
+            var textW = textWrap.width();
             var fontSizeH4 = rateH4 * textW;   
             var rateH4 = 0.037931034
             var fontSizeP = rateP * textW;     
@@ -174,10 +202,10 @@
             function resizeFn(){
                 
                 rl = (windowWidth-boxWidth)/2;
-                windowWidth = $(window).width();
-                windowHeight = $(window).height();
+                windowWidth = window_.width();
+                windowHeight = window_.height();
                 section234Height = windowHeight;
-                boxWidth = $(".content-wrap").width();
+                boxWidth = contentWrap.width();
                 boxHeight = boxWidth * 1.22222;
 
                 if(windowHeight < boxHeight+60){
@@ -189,29 +217,29 @@
                     boxTop = (windowHeight-boxHeight)/2;
                 }
                 
-                textW = $(".text-wrap").width();
+                textW = textWrap.width();
                 fontSizeH3 = rateH3 * textW;
                 fontSizeH4 = rateH4 * textW;  
                 fontSizeP = rateP * textW;    
 
-                $('.text-wrap h3').css({ fontSize:fontSizeH3 });
-                $('.text-wrap h4').css({ fontSize:fontSizeH4 });
-                $('.text-wrap p').css({ fontSize:fontSizeP });
+                textWrapH3.css({ fontSize:fontSizeH3 });
+                textWrapH4.css({ fontSize:fontSizeH4 });
+                textWrapP.css({ fontSize:fontSizeP });
 
-                $(".content-wrap").css({ top:boxTop, height:boxHeight });
-                $(".section234").css({ height:section234Height });
+                contentWrap.css({ top:boxTop, height:boxHeight });
+                section234.css({ height:section234Height });
             
                 if( windowWidth <= 1170 ){
-                    $("#section02 .content-wrap, #section04 .content-wrap").stop().animate({ right:rl-15 },300);
-                    $("#section03 .content-wrap").stop().animate({ left:rl-15 },300);  
+                    section0204ContentWrap.stop().animate({ right:rl-15 },300);
+                    section03ContentWrap.stop().animate({ left:rl-15 },300);  
                 }
                 else{
-                    $("#section02 .content-wrap, #section04 .content-wrap").stop().animate({ right:0 },100);
-                    $("#section03 .content-wrap").stop().animate({ left:0 },100);
+                    section0204ContentWrap.stop().animate({ right:0 },100);
+                    section03ContentWrap.stop().animate({ left:0 },100);
                 }
             };
             
-            $(window).resize(function(){
+            window_.resize(function(){
                 resizeFn();
             });
 
@@ -230,6 +258,11 @@
             
         },
         section09Fn:    function(){
+
+            $(window);
+            $(".img-wrap");
+            $(".gallery-img-btn");
+
             var fileName = null;
             var endNum = null;
             var fileNum = null;
@@ -251,9 +284,10 @@
             //모달창 구현
             $(".gallery-img-btn").on({
                 click : function(e){
+                    var that = $(this);
                     e.preventDefault();
                     //모달창에 띄울 파일의 번호를 추출
-                    fileName = $(this).find("img").attr("src");
+                    fileName = that.find("img").attr("src");
                     endNum = fileName.indexOf(".jpg");
                     fileNum = Number(fileName.slice(endNum-2, endNum));
                     // console.log(fileName, fileNum);

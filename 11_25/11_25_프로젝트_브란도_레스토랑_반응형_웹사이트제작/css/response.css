@@ -52,6 +52,19 @@
     #main #section06 .wrap .container > li {float:none;width:100%;}
     #main #section06 .wrap .container > li .gap .content .small-box {width:40%;left:30%;}
     #main #section06 .wrap .container > li .gap .content .large-box {width:64%;left:18%;}
+
+    #main #section10 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide > div .box .left {float:none;margin:0 auto;}
+    #main #section10 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide > div .box .right {float:none;width:100%;text-align:center;}
+    #main #section10 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide > div .box .right .txt-wrap {margin-left:0;padding-top:20px;}
+    /* 이렇게 해도 슬라이드가 가운데로 오지 않으니까 JS를 사용해서 섹션 9의 메인 함수에 정해놓은 left값 975px 이하일 때 
+    그 때의 창 넓이에 따라 슬라이드 크기가 조절될 수 있게 코딩해주어야함 */
+    
+    #main #section10 .wrap .gap {margin:0;}
+    #main #section10 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide > div .box .right .txt-wrap > p {margin:0 auto;width:65%;}
+    #main #section10 .wrap .gap .container .slide-container .slide-view .arrow-next {margin-top:17.5px;width:50px;height:50px;}
+    #main #section10 .wrap .gap .container .slide-container .slide-view .arrow-next > a {line-height:25px;}
+    #main #section10 .wrap .gap .container .slide-container .slide-view .arrow-prev {margin-top:17.5px;width:50px;height:50px;}
+    #main #section10 .wrap .gap .container .slide-container .slide-view .arrow-prev > a {line-height:25px;}
     }
 
 @media all and (max-width:991px){
@@ -100,6 +113,8 @@
 
     #main #section08 {padding:60px 0;}
     #main #section08 .wrap .gap .container > ul > li {width:100%;}
+
+    #main #section10 {padding:60px 0;}
 }
 
 @media all and (max-width:600px){
@@ -113,4 +128,6 @@
 
     #main #section06 .wrap .container > li .gap .content .small-box {width:80%;left:10%;}
     #main #section06 .wrap .container > li .gap .content .large-box {width:92%;left:4%;}
+
+    #main #section10 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide > div .box .right .txt-wrap > p {width:90%;line-height:140%;}
 }
