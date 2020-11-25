@@ -49,6 +49,7 @@
                     url = that.attr("href");
                     htmlBody.stop().animate({ scrollTop: $( url ).offset().top },800) 
                     mobileMenu.hide();
+                    //mobileMenu.stop().animate({ right:-100+"%" },400);
                     mobileBtn.removeClass("addClose");
                 }
             });
@@ -88,7 +89,7 @@
 
                     event.preventDefault();
                     that.toggleClass("addClose");
-                    if(t==0){
+                    if(t=0){
                         t=1;
                         mobileMenu.stop().animate({right:0},400);
                     }
