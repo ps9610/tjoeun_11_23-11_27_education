@@ -27,6 +27,13 @@
     #main #section08 .wrap {width:90%;}
     #main #section08 .wrap .gap .container > ul > li {width:50%;padding-bottom:60px;}
     #main #section08 .wrap .gap .container > ul > li:last-child {padding-bottom:0;}
+
+    #main #section11 {padding:110px 0;}
+    #main #section11 .black-bg {height:128.5%;top:-14.3%;}
+    #main #section11 .black-bg .wrap {top:0;}
+
+
+
 }
 
 @media all and (max-width:1200px) and (orientation:landscape) {
