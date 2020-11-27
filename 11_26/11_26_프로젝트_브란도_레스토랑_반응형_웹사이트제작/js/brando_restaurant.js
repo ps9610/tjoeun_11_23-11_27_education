@@ -48,8 +48,8 @@
                     event.preventDefault();
                     url = that.attr("href");
                     htmlBody.stop().animate({ scrollTop: $( url ).offset().top },800) 
-                    mobileMenu.hide();
-                    //mobileMenu.stop().animate({ right:-100+"%" },400);
+                    //mobileMenu.hide();
+                    mobileMenu.stop().animate({ right:-100+"%" },400);
                     mobileBtn.removeClass("addClose");
                 }
             });
@@ -74,8 +74,8 @@
                 if( winW>990 ){
                     t=0;
                     mobileBtn.removeClass("addClose");
-                    mobileMenu.stop().slideUp(0);
-                    mobileMenu.stop().animate({ right:-100+"%" },400);
+                    //mobileMenu.stop().slideUp(0);
+                    //mobileMenu.stop().animate({ right:-100+"%" },400);
                 }
                 else{ 
                     t=1; 
@@ -86,17 +86,19 @@
             mobileBtn.on({
                 click : function(event){
                     var that = $(this);
-
+                    
                     event.preventDefault();
                     that.toggleClass("addClose");
+                    
                     if(t=0){
                         t=1;
                         mobileMenu.stop().animate({right:0},400);
                     }
-                    else{
+                    if(t=1){
                         t=0;
                         mobileMenu.stop().animate({right:-100+"%"},400);
                     }
+                    console.log(t)
                 }
             });
         },//헤더의 js
@@ -391,8 +393,8 @@
                 imgW = winW/cols;
                 imgH = imgW*hRate;
 
-                console.log("hide",hide);
-                console.log("show",show);
+                //console.log("hide",hide);
+                //console.log("show",show);
                 
                 //갤러리 숨김 hide();
                 for(var i=0;i<hide.length;i++){
@@ -490,7 +492,7 @@
             function mainSlideFn(){
                 //콜백이 필요없는 완전 단순한 슬라이드
                 // slideWrap.stop().animate({ left:-975*cnt },600);를 창 넓이에 따라 바뀌게 반응형으로 바꿀 예정
-                console.log(slideW);//return값 확인용(밑에 left값 적용되나 보게)
+                //console.log(slideW);//return값 확인용(밑에 left값 적용되나 보게)
                 slideWrap.stop().animate({ left:-slideW*cnt },600);
             }
 
@@ -527,7 +529,7 @@
                         slideWrap.stop().animate({ left:-975*2 },0);
                         return false;
                     }
-                    console.log(cnt);
+                   // console.log(cnt);
                 }
             })
 
@@ -542,19 +544,104 @@
             })
         },
         section11Fn:    function(){
-            
+            // 화면이 줄어들면 좌측 li 박스 높이가 ul 높이에 맞춰 줄어들어야 함
+            // 좌측 li 박스 높이에 따라 우측 li 박스도 따라감
+            var window_ = $(window);
+            var blog = $(".blog")// 4개 배열처리 each메소드 활용
+            var blogList = $(".blog li") //첫번째의 li
+            var blogListImgH = blogList.eq(0).innerHeight(); //첫번째의 li의 높이
+            var fontRateH3 = 0.039711191; //폰트 비율
+            var fontRateP = 0.072202166; //폰트 비율
+            var blogListImgW = blogList.eq(0).innerWidth(); //첫번째의 li의 너비
+            var fontSizeH3 = fontRateH3 * blogListImgW; //너비에 따라서 글자 크기가 바뀜, 폰트사이즈 반응형 계산
+            var fontSizeP = fontRateP * blogListImgW; //폰트사이즈 반응형 계산
+
+            // 12px까지는 줄어들어도 괜찮
+            fontSizeH3>12?fontSizeH3=12:fontSizeH3;
+            fontSizeH3<8?fontSizeH3=8:fontSizeH3;
+
+            fontSizeH3>20?fontSizeH3=20:fontSizeH3;
+            fontSizeH3<15?fontSizeH3=15:fontSizeH3;
+
+            // {position:relative;float:left;width:50%;} /* 좌측 박스 높이로 우측 박스 js 사용하여 높이 설정 */
+
+            setTimeout(resizeFn,100);
+
+            function resizeFn(){
+
+                blogListImgW = blogList.eq(0).innerWidth(); //첫번째의 li의 너비
+                blogListImgH = blogList.eq(0).innerHeight();
+                fontSizeH3 = fontRateH3 * blogListImgW; //너비에 따라서 글자 크기가 바뀜
+                fontSizeP = fontRateP * blogListImgW; 
+
+                    blog.each(function(idx){
+                        blog.eq(idx).children("li").eq(1).css({height:blogListImgH});
+                        blog.eq(idx).find("h3").css({fontSize : fontSizeH3});
+                        blog.eq(idx).find("p").css({fontSize : fontSizeP});
+                    });
+                // blog.eq(0).children("li").eq(1).css({height:blogListImgH});
+                // blog.eq(1).children("li").eq(1).css({height:blogListImgH});
+                // blog.eq(2).children("li").eq(1).css({height:blogListImgH});
+                // blog.eq(3).children("li").eq(1).css({height:blogListImgH});
+                // console.log(blogListImgH)
+
+                // blog.eq(0).find("h3").css({fontSize = fontSizeH3})
+                // blog.eq(0).find("P").css({fontSize = fontSizeP})
+
+                // blog.eq(1).find("h3").css({fontSize = fontSizeH3})
+                // blog.eq(1).find("P").css({fontSize = fontSizeP})
+
+                // blog.eq(2).find("h3").css({fontSize = fontSizeH3})
+                // blog.eq(2).find("P").css({fontSize = fontSizeP})
+
+                // blog.eq(3).find("h3").css({fontSize = fontSizeH3})
+                // blog.eq(3).find("P").css({fontSize = fontSizeP})
+            }
+
+            window_.resize(function(){                
+                resizeFn();
+            })
         },
         section12Fn:    function(){
+            var window_ = $(window);
+            var h3 = $("#section12 h3");
+            var h2 = $("#section12 h2");
+            var container = $("#section12 .title-wrap");
 
+            var containerW = container.innerWidth();
+            var fontSizeH3 = containerW * 0.01754386;
+            var fontSizeH2 = containerW * 0.035087719;
+
+            setTimeout(resizeFn,100);
+
+            function resizeFn(){
+                containerW = container.innerWidth();
+                fontSizeH3 = containerW * 0.01754386;
+                fontSizeH2 = containerW * 0.035087719;
+
+                if(fontSizeH3<13){fontSizeH3=13};
+                if(fontSizeH2<25){fontSizeH2=25};
+                h3.css({fontSize : fontSizeH3});
+                h2.css({fontSize : fontSizeH2});
+                
+                //console.log(containerW)
+                //console.log("fontSizeH3",fontSizeH3)
+                //console.log(fontSizeH2)
+
+            };
+
+            //반응형 함수
+            window_.resize(function(){
+                resizeFn();
+            })
         },
         section13Fn:    function(){
+
             
         },
         section14Fn:    function(){
-            
         },
         footerFn:       function(){
-            
         }
     }; 
 

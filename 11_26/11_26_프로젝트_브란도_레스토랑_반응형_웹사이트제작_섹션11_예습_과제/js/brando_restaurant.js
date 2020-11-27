@@ -391,8 +391,8 @@
                 imgW = winW/cols;
                 imgH = imgW*hRate;
 
-                console.log("hide",hide);
-                console.log("show",show);
+                //console.log("hide",hide);
+                //console.log("show",show);
                 
                 //갤러리 숨김 hide();
                 for(var i=0;i<hide.length;i++){
@@ -490,7 +490,7 @@
             function mainSlideFn(){
                 //콜백이 필요없는 완전 단순한 슬라이드
                 // slideWrap.stop().animate({ left:-975*cnt },600);를 창 넓이에 따라 바뀌게 반응형으로 바꿀 예정
-                console.log(slideW);//return값 확인용(밑에 left값 적용되나 보게)
+                //console.log(slideW);//return값 확인용(밑에 left값 적용되나 보게)
                 slideWrap.stop().animate({ left:-slideW*cnt },600);
             }
 
@@ -542,7 +542,34 @@
             })
         },
         section11Fn:    function(){
-            
+            var win = $(window);
+            var winW = $(window).innerWidth;
+            var blog = $(".blog");
+            var blogImg = $(".blog-wrap").children("img");
+            var blogTxtWrap = $(".blog-wrap .blog-txt").innerHeight();
+            var dateFontSize = 
+
+            var dateFontRate  = 0.043243243; 
+            var dateTxtRate  = 0.064864865; 
+            var dateFont = $(".blog-wrap .b-date");
+            var txtFont = $(".blog-wrap .b-text");
+
+            setTimeout(resizeFn,100);
+
+            function resizeFn(){
+                winW = $(window).innerWidth;
+                blog = $(".blog");
+                blogImg = $(".blog-wrap").children("img");
+                blogTxtWrap = $(".blog-wrap .blog-txt").innerHeight();
+
+                blog.css({width:winW});
+                console.log(blogTxtWrap);
+            }
+
+            win.resize(function(){
+                resizeFn();
+            })
+
         },
         section12Fn:    function(){
 

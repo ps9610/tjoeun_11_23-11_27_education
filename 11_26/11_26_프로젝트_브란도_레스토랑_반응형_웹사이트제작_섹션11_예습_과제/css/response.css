@@ -29,9 +29,7 @@
     #main #section08 .wrap .gap .container > ul > li:last-child {padding-bottom:0;}
 
     #main #section11 {padding:110px 0;}
-    #main #section11 .black-bg {height:128.5%;top:-14.3%;}
-    #main #section11 .black-bg .wrap {top:0;}
-
+    #main #section11 .wrap .gap > ul {width:80%;margin:0 auto;}
 
 
 }
