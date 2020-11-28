@@ -49,7 +49,8 @@
                     event.preventDefault();
                     url = that.attr("href");
                     htmlBody.stop().animate({ scrollTop: $( url ).offset().top },800); 
-                    mobileMenu.hide();
+                    t=0; // 초기화
+                    mobileMenu.stop().animate({ right:-100+"%" },0);//처음화면처럼 초기화되어야하니까 0초 사이에 -100으로 가게 해야함 = 초기화
                     mobileBtn.removeClass("addClose");
                 }
             });
@@ -72,61 +73,53 @@
                 if( winW>990 ){
                     t=0;
                     mobileBtn.removeClass("addClose");
-                    mobileMenu.stop().slideUp(0);
-                    mobileMenu.stop().animate({ right:-100+"%" },400);
-                }
-                else{ 
-                    t=1; 
+                    mobileMenu.stop().animate({ right:-100+"%" },400); // 여기서 다시 초기화해줘서 if만 쓰면 됨 
                 }
             });
 
-            mobileBtn.on({
-                click:   function(e){
-                    e.preventDefault();
-                    var that = $(this);
-                    var x = null;
-                        x = that.hasClass("addClose");
-                        if( x==false ){
-                            x==true;
-                            that.addClass("addClose");
-                            mobileMenu.stop().animate({right:0},400);
-                            mobileMenu.show();
-                        }
-                        else if( x==true ){
-                            x==false;
-                            that.removeClass("addClose");
-                            mobileMenu.stop().animate({right:-100+"%"},400);
-                            mobileMenu.hide();
-                        }
-                        console.log(x)
-                }
-            });
+            // 만약 smoothBtn에 mobileMenu.hide()를 쓰려면 
+            // mobileBtn.on({
+            //     click:   function(e){
+            //         e.preventDefault();
+            //         var that = $(this);
+            //         var x = null;
+            //             x = that.hasClass("addClose");
+            //             if( x==false ){
+            //                 x==true;
+            //                 that.addClass("addClose");
+            //                 mobileMenu.stop().animate({right:0},400);
+            //                 mobileMenu.show();
+            //             }
+            //             else if( x==true ){
+            //                 x==false;
+            //                 that.removeClass("addClose");
+            //                 mobileMenu.stop().animate({right:-100+"%"},400);
+            //                 mobileMenu.hide();
+            //             }
+            //             console.log(x)
+            //     }
+            // });
     
 
             // btn-click event
-            // 🚫토글변수 사용 시 오류 : 메뉴 버튼 중 아무거나 클릭하면 해당 섹션으로 이동하지만, 
-            //다른 메뉴로 이동하기 위해서 다시 햄버거 버튼을 누르면
-            // 한 번에 나오지 않고 한 번 더 눌러야 메뉴가 나옴
 
-            // mobileBtn.on({
-            //     click : function(event){
-            //         var that = $(this);
+            mobileBtn.on({
+                click : function(event){
+                    var that = $(this);
                     
-            //         event.preventDefault();
-            //         that.toggleClass("addClose");
-            //         if(t==0){
-            //             t=1;
-            //             mobileMenu.stop().animate({right:0},400);
-            //             mobileMenu.show();
-            //         }
-            //         else if(t==1){
-            //             t=0;
-            //             mobileMenu.stop().animate({right:-100+"%"},400);
-            //             mobileMenu.hide();
-            //         }
-            //         console.log(t);
-            //     }
-            // });
+                    event.preventDefault();
+                    that.toggleClass("addClose");
+                    if(t==0){
+                        t=1;
+                        mobileMenu.stop().animate({right:0},400);
+                    }
+                    else if(t==1){
+                        t=0;
+                        mobileMenu.stop().animate({right:-100+"%"},400);
+                    }
+                    console.log(t);
+                }
+            });
 
         },//헤더의 js
 
@@ -307,17 +300,19 @@
             
         },
         section09Fn:    function(){
+
+            var htmlRoot = $("html");
             var fileName = null;
             var endNum = null;
             var fileNum = null;
             var winH = 0;
-            var imgWrap = $("#section09 .img-wrap")
+            var imgWrap = $(".modal .img-wrap")
             var galleryImgBtn = $("#section09 .gallery-img-btn")
-            var modal = $("#section09 .modal")
-            var imgWrapImg = $("#section09 .img-wrap img")
-            var arrowRightAndImgBtn = $("#section09 .arrow-right-btn, #section09 .img-btn")
-            var arrowLeftBtn= $("#section09 .arrow-left-btn")
-            var closeBtnAndImgWrap = $("#section09 .close-btn, #section09 .img-wrap")
+            var modal = $(".modal")
+            var imgWrapImg = $(".modal .img-wrap img")
+            var arrowRightAndImgBtn = $(".modal .arrow-right-btn, .modal .img-btn")
+            var arrowLeftBtn= $(".modal .arrow-left-btn")
+            var closeBtnAndImgWrap = $(".modal .close-btn, .modal .img-wrap")
             
             setTimeout(resizeFn,100);
 
@@ -335,15 +330,20 @@
             //모달창 구현
             galleryImgBtn.on({
                 click : function(e){
-                    var that = $(this)
+                    var that = $(this);
                     e.preventDefault();
                     //모달창에 띄울 파일의 번호를 추출
                     fileName = that.find("img").attr("src");
                     endNum = fileName.indexOf(".jpg");
                     fileNum = Number(fileName.slice(endNum-2, endNum));
                     // console.log(fileName, fileNum);
+
+                    //스크롤 없애기
+                    htmlRoot.addClass("addScroll");
+
                     modalMainSlideFn();
                 }
+
             })
             //모달창 메인 슬라이드
             function modalMainSlideFn(){
@@ -354,6 +354,8 @@
                 click : function(e){
                     e.preventDefault();
                     modal.stop().fadeOut(300);
+                    //스크롤 없애기
+                    htmlRoot.removeClass("addScroll");
                 }
             })
 
@@ -375,9 +377,9 @@
         },
         section09GalleryFn: function(){
             
-            var gallery = $(".gallery")
-            var galleryLi = $(".gallery li")
-            var galleryBtn = $(".gallery-btn")
+            var gallery = $("#section09 .gallery")
+            var galleryLi = $("#section09 .gallery li")
+            var galleryBtn = $("#section09 .gallery-btn")
             var window_ = $(window)
             
             // 초기값 변수
@@ -488,7 +490,7 @@
 
             var window_ = $(window);
             var winW = window_.innerWidth();
-            var slideW = 975;//975 = 기본값 -> 창 넓이에 따라 바뀜
+            var slideW = 975;//975 기본값
             var cnt = 0;
             var slideWrap = $("#section10 .slide-wrap")
             var slide = $("#section10 .slide")
@@ -506,8 +508,8 @@
                     slideW = winW;
                 }
 
-                slide.css({width:slideW}); //slide랑 wrapping 둘 다 넓이가 같이 변화해야함, 하고 나서 텍스트 길이 조정
-                slideWrap.stop().animate({ left:-slideW*cnt },500);//창 너비가 바뀌면서 재 조정됨 = 초기화
+                slide.css({width:slideW}); //slide
+                slideWrap.stop().animate({ left:-slideW*cnt },500);//slideWrap
                 mainSlideFn();
             }
 
@@ -516,9 +518,6 @@
             })
 
             function mainSlideFn(){
-                //콜백이 필요없는 완전 단순한 슬라이드
-                // slideWrap.stop().animate({ left:-975*cnt },600);를 창 넓이에 따라 바뀌게 반응형으로 바꿀 예정
-                //console.log(slideW);//return값 확인용(밑에 left값 적용되나 보게)
                 slideWrap.stop().animate({ left:-slideW*cnt },600);
             }
 
@@ -574,55 +573,35 @@
             // 화면이 줄어들면 좌측 li 박스 높이가 ul 높이에 맞춰 줄어들어야 함
             // 좌측 li 박스 높이에 따라 우측 li 박스도 따라감
             var window_ = $(window);
-            var blog = $("#section11 .blog")// 4개 배열처리 each() 메소드 활용
-            var blogList = $("#section11 .blog li") //첫번째의 li
-            var blogListImgH = blogList.eq(0).innerHeight(); //첫번째의 li의 높이
-            var fontRateH3 = 0.039711191; //폰트 비율
-            var fontRateP = 0.072202166; //폰트 비율
-            var blogListImgW = blogList.eq(0).innerWidth(); //첫번째의 li의 너비
-            //너비에 따라서 글자 크기가 바뀜//
-            var fontSizeH3 = fontRateH3 * blogListImgW; //폰트사이즈 반응형 계산
-            var fontSizeP = fontRateP * blogListImgW; //폰트사이즈 반응형 계산
+            var blog = $("#section11 .blog")
+            var blogList = $("#section11 .blog li")
+            var blogListImgH = blogList.eq(0).innerHeight();
+            var fontRateH3 = 0.039711191;
+            var fontRateP = 0.072202166;
+            var blogListImgW = blogList.eq(0).innerWidth();
+            var fontSizeH3 = fontRateH3 * blogListImgW;
+            var fontSizeP = fontRateP * blogListImgW;
             
             setTimeout(resizeFn,100);
-            
-            // {position:relative;float:left;width:50%;} /* 좌측 박스 높이로 우측 박스 js 사용하여 높이 설정 */
+
             function resizeFn(){
 
-                blogListImgW = blogList.eq(0).innerWidth(); //첫번째의 li의 너비
+                blogListImgW = blogList.eq(0).innerWidth();
                 blogListImgH = blogList.eq(0).innerHeight();
-                fontSizeH3 = fontRateH3 * blogListImgW; //너비에 따라서 글자 크기가 바뀜
+                fontSizeH3 = fontRateH3 * blogListImgW;
                 fontSizeP = fontRateP * blogListImgW;
                 
-            // 12px까지는 줄어들어도 괜찮
-            fontSizeH3>12?fontSizeH3=12:fontSizeH3;
-            fontSizeH3<8?fontSizeH3=8:fontSizeH3;
+                fontSizeH3>12?fontSizeH3=12:fontSizeH3;
+                fontSizeH3<8?fontSizeH3=8:fontSizeH3;
 
-            fontSizeH3>20?fontSizeH3=20:fontSizeH3;
-            fontSizeH3<15?fontSizeH3=15:fontSizeH3;
+                fontSizeH3>20?fontSizeH3=20:fontSizeH3;
+                fontSizeH3<15?fontSizeH3=15:fontSizeH3;
 
-            blog.each(function(idx){
-                blog.eq(idx).children("li").eq(1).css({height:blogListImgH});
-                blog.eq(idx).find("h3").css({fontSize : fontSizeH3});
-                blog.eq(idx).find("p").css({fontSize : fontSizeP});
-            });
-                // blog.eq(0).children("li").eq(1).css({height:blogListImgH});
-                // blog.eq(1).children("li").eq(1).css({height:blogListImgH});
-                // blog.eq(2).children("li").eq(1).css({height:blogListImgH});
-                // blog.eq(3).children("li").eq(1).css({height:blogListImgH});
-                // console.log(blogListImgH)
-
-                // blog.eq(0).find("h3").css({fontSize = fontSizeH3})
-                // blog.eq(0).find("P").css({fontSize = fontSizeP})
-
-                // blog.eq(1).find("h3").css({fontSize = fontSizeH3})
-                // blog.eq(1).find("P").css({fontSize = fontSizeP})
-
-                // blog.eq(2).find("h3").css({fontSize = fontSizeH3})
-                // blog.eq(2).find("P").css({fontSize = fontSizeP})
-
-                // blog.eq(3).find("h3").css({fontSize = fontSizeH3})
-                // blog.eq(3).find("P").css({fontSize = fontSizeP})
+                blog.each(function(idx){
+                    blog.eq(idx).children("li").eq(1).css({height:blogListImgH});
+                    blog.eq(idx).find("h3").css({fontSize : fontSizeH3});
+                    blog.eq(idx).find("p").css({fontSize : fontSizeP});
+                });
             }
 
             window_.resize(function(){                
@@ -664,8 +643,52 @@
             })
         },
         section13Fn:    function(){
-
+            var h2Number = $("#section13 h2")//780(0.012820513, 12.820513) 987(0.010131712, 10.131712) 350(0.028571429, 28.571429) 166(0.060240964, 60.240964)
+            var cnt = [0,0,0,0];//증감수는 반드시 초기값 0 가지고 있어야함 
+            var setId = [null,null,null,null];
+            var num = [780, 987, 350, 166]; //이거 안 쓰려면 html에 초기값 먼저 기입해주면 됨 
+            var s = 10; // 10초 안에 움직인다고 상수써줌
+            var mSecond = [];//mSecond를 배열로 먼저 만들어 주고
+            var window_ = $(window);
+            var sec12Top = $("#section12").offset().top-500;
+            var t=0;
+            //var mSecond = [12.820513, 10.131712, 28.571429, 60.240964];
+            //var mSecond = [s/num[0]*1000,s/num[1]*1000,s/num[2]*1000,s/num[3]*1000];//10초를 각 숫자로 나누기, 
+            //                  ☝ 이것도 for문 사용해서 반복문 가능
+            for (var i=0; i<num.length; i++){
+                mSecond[i] = (s/num[i])*1000;
+            }
             
+            //setTimeout(countFn,100)
+            
+            //parallax scorlling
+            window_.scroll(function(){
+                console.log(window_.scrollTop());
+                if( window_.scrollTop() > sec12Top ){
+                    if(t==0){
+                        t=1;
+                        countFn();
+                    }
+                }
+                else{
+                    t=0;
+                    cnt = [0,0,0,0];
+                }
+            });
+
+            function countFn(){
+                h2Number.each(function(i){
+                    setId[i] = setInterval(function(){
+                        cnt[i]++;
+                        if(cnt[i]>num[i]){
+                            clearInterval(setId[i]);
+                        }
+                        else {
+                            h2Number.eq(i).text(cnt[i]);
+                            }
+                        },mSecond[i]); 
+                });
+            }
         },
         section14Fn:    function(){
         },
