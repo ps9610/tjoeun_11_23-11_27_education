@@ -352,11 +352,12 @@
 #main  #section14 .wrap .gap .container > ul > li > div {margin:0 15px;}
 #main  #section14 .wrap .gap .container > ul > li > div > ul {width:100%;}
 #main  #section14 .wrap .gap .container > ul > li > div > ul > li {padding-bottom:60px;}
-#main  #section14 .wrap .gap .container > ul > li > div > ul > li div {display:inline-block;}
-#main  #section14 .wrap .gap .container > ul > li > div > ul > li .icon-wrap {width:80px;}
-#main  #section14 .wrap .gap .container > ul > li > div > ul > li .icon-wrap span i {font-size:40px;color:#c8a64b;}
+#main  #section14 .wrap .gap .container > ul > li > div > ul > li > div {display:inline-block;}
+#main  #section14 .wrap .gap .container > ul > li > div > ul > li .icon-wrap {display:inline-block;}
+#main  #section14 .wrap .gap .container > ul > li > div > ul > li .icon-wrap > span {width:80px;padding-right:5px;display:inline-block;}
+#main  #section14 .wrap .gap .container > ul > li > div > ul > li .icon-wrap > span > i {font-size:40px;color:#c8a64b;}
 #main  #section14 .wrap .gap .container > ul > li > div > ul > li .text-wrap h4 {font-family:'Montserrat';font-size:15px;color:#000;font-weight:700;padding-bottom:6px;}
-#main  #section14 .wrap .gap .container > ul > li > div > ul > li .text-wrap h5 {font-size:14px;color:#626262;line-height:130%;}
+#main  #section14 .wrap .gap .container > ul > li > div > ul > li .text-wrap h5 {font-size:14px;color:#626262;line-height:170%;}
 
 #main  #section14 .wrap .gap .container > ul > li:last-child {float:left;width:58.3333333%;}
 #main  #section14 .wrap .gap .container > ul > li:last-child > div {margin:0 15px;}
